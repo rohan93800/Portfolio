@@ -53,16 +53,23 @@
             line-height: 1.2;
         }
 
-        /* Professional Name Treatment */
-        .logo-name {
-            font-family: 'Space Grotesk', sans-serif;
+              .logo-name {
+            font-family: 'Space Grotesk', Arial, sans-serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--dark);
+            color: var(--dark) !important; /* Forces color */
             position: relative;
             display: inline-block;
-            letter-spacing: 0.5px;
-            white-space: nowrap; /* Prevent name from breaking */
+            white-space: nowrap;
+            margin-left: 0.5rem;
+            opacity: 1 !important;
+            z-index: 1001;
+            text-shadow: none !important;
+            background: transparent !important;
+        }
+
+body.dark-mode .logo-name {
+    color: white !important; /* Ensures visibility in dark mode */
         }
         
         .logo-name::before {
@@ -1050,10 +1057,10 @@
     
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <i class="fas fa-chart-line"></i>
-            <span class="logo-name">Rohan <span>Pasari</span></span>
-        </div>
+          <div class="logo">
+        <i class="fas fa-chart-line"></i>
+        <span class="logo-name">Rohan Pasari</span>
+    </div>
         <ul>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -1345,9 +1352,9 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-chart-line"></i> <span class="logo-name">Rohan <span>Pasari</span></span>
-            </div>
+          <div class="footer-logo">
+            <i class="fas fa-chart-line"></i> <span class="logo-name">Rohan Pasari</span>
+        </div>
             <div class="footer-links">
                 <a href="#projects" class="footer-link">Projects</a>
                 <a href="#skills" class="footer-link">Skills</a>
