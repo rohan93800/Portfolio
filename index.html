@@ -1067,7 +1067,7 @@
     <!-- Hero Section with Vanta.js Background -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>Transforming Data <span>Into Actionable Insights</span></h1>
+            <h1 id="typewriter-text">Transforming Data <span>Into Actionable Insights</span></h1>
             <p>I'm <span class="logo-name">Rohan <span>Pasari</span></span>, a Data Analyst skilled in SQL, Python, Tableau and Power BI with expertise in cleaning, transforming, and visualizing data to uncover business insights.</p>
             <div class="button-group">
                 <a href="#projects" class="cta-button">View My Work <i class="fas fa-arrow-right"></i></a>
@@ -1539,9 +1539,39 @@
             window.addEventListener('scroll', animateElements);
             window.addEventListener('load', animateElements);
             
-            // Typewriter effect for hero text
-            const heroText = document.querySelector('.hero h1');
-            heroText.classList.add('typewriter');
+             // Typewriter Effect
+            function typeWriterEffect() {
+                const textElement = document.getElementById('typewriter-text');
+                if (!textElement) return;
+                
+                const originalText = textElement.textContent;
+                textElement.textContent = '';
+                textElement.style.borderRight = '3px solid var(--primary)';
+                
+                let i = 0;
+                const speed = 50; // typing speed in milliseconds
+                
+                function type() {
+                    if (i < originalText.length) {
+                        textElement.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        // Animation complete - keep cursor blinking
+                        setInterval(() => {
+                            textElement.style.borderRight = 
+                                textElement.style.borderRight === '3px solid transparent' ? 
+                                '3px solid var(--primary)' : 
+                                '3px solid transparent';
+                        }, 750);
+                    }
+                }
+                
+                type();
+            }
+            
+            // Start the typewriter effect
+            typeWriterEffect();
         });
     </script>
 </body>
